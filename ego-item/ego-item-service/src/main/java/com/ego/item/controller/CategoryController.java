@@ -46,7 +46,6 @@ public class CategoryController {
   @PutMapping
   public ResponseEntity<Void> update(@RequestParam("id") Long id,@RequestParam("name") String name){
     categoryService.updateCategory(id,name);
-    System.out.println(" 2333");
     return ResponseEntity.ok().build();
   }
 
