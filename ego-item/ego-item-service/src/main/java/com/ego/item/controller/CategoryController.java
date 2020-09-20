@@ -4,9 +4,7 @@ import com.ego.item.pojo.Category;
 import com.ego.item.service.CategoryService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.CollectionUtils;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
@@ -33,5 +31,27 @@ public class CategoryController {
       e.printStackTrace();
     }
     return ResponseEntity.notFound().build();
+  }
+
+
+  //新增商品
+  @PostMapping
+  public ResponseEntity<Void> save(@RequestBody Category category) {
+    categoryService.addCategory(category);
+    return ResponseEntity.ok().build();
+  }
+
+  //更新商品分类
+  @PutMapping
+  public ResponseEntity<Void> update(@RequestParam("id") Long id,@RequestParam("name") String name){
+    categoryService.updateCategory(id,name);
+    return ResponseEntity.ok().build();
+  }
+
+  //删除商品
+  @DeleteMapping("/{id}")
+  public ResponseEntity<Void> delete(@PathVariable Long id){
+    categoryService.deleteCategory(id);
+    return ResponseEntity.ok().build();
   }
 }
