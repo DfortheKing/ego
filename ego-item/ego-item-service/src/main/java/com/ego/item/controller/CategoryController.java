@@ -38,7 +38,6 @@ public class CategoryController {
   @PostMapping
   public ResponseEntity<Void> save(@RequestBody Category category) {
     categoryService.addCategory(category);
-    System.out.println("222e1");
     return ResponseEntity.ok().build();
   }
 
