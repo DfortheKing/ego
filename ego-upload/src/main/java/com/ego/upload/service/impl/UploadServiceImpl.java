@@ -41,7 +41,6 @@ public class UploadServiceImpl implements UploadService {
       //判断文件是否是图片
       BufferedImage read = ImageIO.read(file.getInputStream());
       if(read==null){
-
         return null;
       }
 
