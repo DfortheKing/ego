@@ -5,13 +5,13 @@ import com.ego.item.pojo.Category;
 import java.util.List;
 
 public interface CategoryService {
-  //根据pid查询商品列表
-  List<Category> queryCategoryListByParentId(Long pid);
+  //通过parentId查询所有的商品
+  List<Category> findCategoryByPid(Long pid);
 
-  //添加商品分类
+  //新增商品分类
   void addCategory(Category category);
 
-//  更新节点
+  //修改一个商品分类
   void updateCategory(Long id, String name);
 
   //删除一个商品分类

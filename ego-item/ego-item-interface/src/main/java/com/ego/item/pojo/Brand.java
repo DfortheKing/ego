@@ -8,14 +8,9 @@ import lombok.Data;
 @Data
 @TableName("tb_brand")
 public class Brand {
-
   @TableId(type = IdType.AUTO)
   private Long id;
-
   private String name;
-
   private String image;
-
-  private Character letter;
-
+  private String letter;
 }

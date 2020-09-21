@@ -10,18 +10,20 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.annotation.Resource;
 import java.util.List;
 
-@Service("categoryService")
+@Service
 @Transactional
 public class CategoryServiceImpl implements CategoryService {
+
   @Resource
   private CategoryMapper categoryMapper;
 
   @Override
-  public List<Category> queryCategoryListByParentId(Long pid) {
-    QueryWrapper queryWrapper = new QueryWrapper();
-    queryWrapper.eq("parent_id",pid);
-    List list = categoryMapper.selectList(queryWrapper);
-    return list;
+  public List<Category> findCategoryByPid(Long pid) {
+
+    QueryWrapper<Category> categoryQueryWrapper = new QueryWrapper<>();
+    categoryQueryWrapper.eq("parent_id",pid);
+    List<Category> categoryList = categoryMapper.selectList(categoryQueryWrapper);
+    return categoryList;
   }
 
   @Override
